@@ -54,84 +54,11 @@ FitRoutine/
 
 ---
 
-# 🚀 Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/yourusername/fitroutine.git
-```
-
-Open the project folder:
-
-```bash
-cd fitroutine
-```
-
-Launch the website by opening:
-
-```text
-index.html
-```
-
-or use a local development server.
-
-Example:
-
-```bash
-python -m http.server
-```
-
-or
-
-```bash
-npx serve
-```
-
----
 
 # 🌐 Deployment
 
 ## GitHub Pages
 
-1. Push the project to GitHub.
-2. Open **Repository Settings**.
-3. Select **Pages**.
-4. Choose the main branch.
-5. Save.
-6. Your site will be published automatically.
-
----
-
-## Netlify
-
-1. Sign in to Netlify.
-2. Click **Add new site**.
-3. Import the GitHub repository or drag the project folder.
-4. Publish.
-
-No build command is required.
-
----
-
-## Vercel
-
-1. Import the repository.
-2. Framework preset:
-   ```
-   Other
-   ```
-3. Build command:
-   ```
-   None
-   ```
-4. Output directory:
-   ```
-   .
-   ```
-5. Deploy.
-
----
 
 # 💻 Browser Support
 
@@ -206,6 +133,7 @@ You are free to use, modify, distribute, and improve the project while retaining
 **FitRoutine**
 
 A premium pixel-art fitness website created using modern web standards and Vanilla JavaScript.
+From the Authorship **sreenand-cod**
 
 ---
 
@@ -221,4 +149,6 @@ If you enjoy this project:
 
 ---
 
+
+# Authored
 Built with HTML5, CSS3, and Vanilla JavaScript.
