@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" shape-rendering="crispEdges">
+  <rect width="64" height="64" fill="#ffffff"/>
+
+  <!-- Left Weights -->
+  <rect x="6" y="20" width="6" height="24" fill="#2563EB"/>
+  <rect x="14" y="16" width="6" height="32" fill="#2563EB"/>
+  <rect x="22" y="24" width="4" height="16" fill="#2563EB"/>
+
+  <!-- Handle -->
+  <rect x="26" y="29" width="12" height="6" fill="#1E40AF"/>
+
+  <!-- Right Weights -->
+  <rect x="38" y="24" width="4" height="16" fill="#2563EB"/>
+  <rect x="44" y="16" width="6" height="32" fill="#2563EB"/>
+  <rect x="52" y="20" width="6" height="24" fill="#2563EB"/>
+</svg>
