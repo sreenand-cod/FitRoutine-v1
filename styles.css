@@ -1,0 +1,2034 @@
+/*==================================================
+  FitRoutine - styles.css (Part 1)
+  Sections:
+  1. Google Fonts
+  2. Reset
+  3. Variables
+  4. Base Styles
+  5. Typography
+  6. Utilities
+  7. Navigation
+  8. Hero
+==================================================*/
+
+/*==============================
+  Google Fonts
+==============================*/
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/*==============================
+  Reset
+==============================*/
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+}
+
+body{
+    min-height:100vh;
+}
+
+img,
+picture{
+    display:block;
+    max-width:100%;
+}
+
+button,
+input,
+select,
+textarea{
+    font:inherit;
+    border:none;
+    outline:none;
+    background:none;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+ul{
+    list-style:none;
+}
+
+/*==============================
+  Variables
+==============================*/
+:root{
+
+    color-scheme:dark light;
+
+    --bg:#0e1117;
+    --bg-secondary:#171b24;
+    --surface:#202632;
+    --surface-hover:#2a3240;
+
+    --text:#ffffff;
+    --text-soft:#d0d5dd;
+    --text-muted:#9aa4b2;
+
+    --primary:#59d0ff;
+    --primary-dark:#2fb7f1;
+
+    --secondary:#7c5cff;
+
+    --success:#44d17a;
+    --warning:#ffcb45;
+    --danger:#ff6262;
+
+    --pixel:#9af4ff;
+
+    --border:3px solid var(--pixel);
+
+    --radius:18px;
+
+    --shadow:
+    0 0 0 2px #000,
+    0 10px 20px rgba(0,0,0,.35);
+
+    --pixel-shadow:
+    4px 4px 0 #000;
+
+    --transition:.30s ease;
+
+    --max-width:1320px;
+
+    --nav-height:78px;
+
+    --font-body:'Inter',sans-serif;
+
+    --font-pixel:'Press Start 2P',cursive;
+
+}
+
+/*==============================
+  Light Theme
+==============================*/
+
+body.light{
+
+    --bg:#f5f7fa;
+    --bg-secondary:#ffffff;
+
+    --surface:#ffffff;
+    --surface-hover:#edf2f8;
+
+    --text:#1d1d1d;
+    --text-soft:#444;
+    --text-muted:#666;
+
+    --shadow:
+    0 10px 25px rgba(0,0,0,.08);
+
+    --pixel-shadow:
+    4px 4px 0 rgba(0,0,0,.18);
+
+}
+
+/*==============================
+  Base
+==============================*/
+
+body{
+
+    font-family:var(--font-body);
+
+    background:linear-gradient(
+        180deg,
+        var(--bg),
+        var(--bg-secondary)
+    );
+
+    color:var(--text);
+
+    transition:
+    background .4s ease,
+    color .4s ease;
+
+    overflow-x:hidden;
+
+}
+
+main{
+
+    width:min(100%,var(--max-width));
+
+    margin-inline:auto;
+
+    padding-inline:1rem;
+
+}
+
+section{
+
+    padding:5rem 0;
+
+}
+
+::selection{
+
+    background:var(--primary);
+
+    color:#000;
+
+}
+
+:focus-visible{
+
+    outline:3px solid var(--warning);
+
+    outline-offset:4px;
+
+}
+
+/*==============================
+  Scrollbar
+==============================*/
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:var(--bg);
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:999px;
+
+}
+
+/*==============================
+  Typography
+==============================*/
+
+h1,
+h2,
+h3{
+
+    font-family:var(--font-pixel);
+
+    line-height:1.5;
+
+}
+
+h1{
+
+    font-size:clamp(2rem,5vw,4rem);
+
+}
+
+h2{
+
+    font-size:clamp(1.4rem,4vw,2.2rem);
+
+}
+
+h3{
+
+    font-size:clamp(.9rem,2vw,1.2rem);
+
+}
+
+p{
+
+    color:var(--text-soft);
+
+    line-height:1.8;
+
+    margin-top:1rem;
+
+}
+
+section header{
+
+    text-align:center;
+
+    margin-bottom:3rem;
+
+}
+
+/*==============================
+  Pixel Border Animation
+==============================*/
+
+@keyframes pixelGlow{
+
+    0%{
+
+        box-shadow:
+        0 0 0 3px var(--pixel),
+        var(--pixel-shadow);
+
+    }
+
+    50%{
+
+        box-shadow:
+        0 0 18px var(--primary),
+        var(--pixel-shadow);
+
+    }
+
+    100%{
+
+        box-shadow:
+        0 0 0 3px var(--pixel),
+        var(--pixel-shadow);
+
+    }
+
+}
+
+/*==============================
+  Floating Animation
+==============================*/
+
+@keyframes float{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+/*==============================
+  Fade
+==============================*/
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/*==============================
+  Utility Classes
+==============================*/
+
+.container{
+
+    width:min(100%,var(--max-width));
+
+    margin:auto;
+
+}
+
+.pixel-card{
+
+    background:var(--surface);
+
+    border:var(--border);
+
+    border-radius:var(--radius);
+
+    padding:1.5rem;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.pixel-card:hover{
+
+    transform:translateY(-6px);
+
+    animation:pixelGlow 1.3s infinite;
+
+}
+
+.btn-primary,
+.btn-secondary{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:.6rem;
+
+    padding:1rem 1.4rem;
+
+    border-radius:14px;
+
+    font-weight:700;
+
+    transition:var(--transition);
+
+    border:var(--border);
+
+    font-family:var(--font-pixel);
+
+    font-size:.75rem;
+
+}
+
+.btn-primary{
+
+    background:var(--primary);
+
+    color:#000;
+
+}
+
+.btn-secondary{
+
+    background:transparent;
+
+    color:var(--text);
+
+}
+
+.btn-primary:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--pixel-shadow);
+
+}
+
+.btn-secondary:hover{
+
+    background:var(--surface-hover);
+
+    transform:translateY(-4px);
+
+}
+
+/*==============================
+  Header
+==============================*/
+
+.site-header{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:999;
+
+    backdrop-filter:blur(16px);
+
+    background:rgba(12,15,20,.75);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+body.light .site-header{
+
+    background:rgba(255,255,255,.75);
+
+}
+
+.navbar{
+
+    width:min(100%,var(--max-width));
+
+    margin:auto;
+
+    min-height:var(--nav-height);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:0 1rem;
+
+}
+
+.logo{
+
+    font-family:var(--font-pixel);
+
+    color:var(--primary);
+
+    font-size:.9rem;
+
+}
+
+.nav-links{
+
+    display:none;
+
+    gap:2rem;
+
+}
+
+.nav-links a{
+
+    position:relative;
+
+    transition:var(--transition);
+
+    font-weight:600;
+
+}
+
+.nav-links a:hover{
+
+    color:var(--primary);
+
+}
+
+.nav-links a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:3px;
+
+    background:var(--primary);
+
+    transition:.3s;
+
+}
+
+.nav-links a:hover::after{
+
+    width:100%;
+
+}
+
+.menu-toggle,
+.theme-toggle{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:12px;
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    border:var(--border);
+
+    transition:var(--transition);
+
+}
+
+.menu-toggle:hover,
+.theme-toggle:hover{
+
+    transform:scale(1.05);
+
+    animation:pixelGlow 1.3s infinite;
+
+}
+
+/*==============================
+  Hero
+==============================*/
+
+.hero{
+
+    display:grid;
+
+    gap:3rem;
+
+    align-items:center;
+
+    min-height:calc(100vh - var(--nav-height));
+
+    padding-top:2rem;
+
+}
+
+.hero-content{
+
+    animation:fadeUp .8s ease;
+
+}
+
+.hero h1{
+
+    margin-bottom:1rem;
+
+}
+
+.hero-buttons{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:1rem;
+
+    margin-top:2rem;
+
+}
+
+.hero-art{
+
+    display:grid;
+
+    place-items:center;
+
+}
+
+.pixel-character{
+
+    width:260px;
+
+    aspect-ratio:1;
+
+    border-radius:24px;
+
+    border:var(--border);
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+
+    animation:float 4s ease-in-out infinite;
+
+    box-shadow:
+    var(--shadow);
+
+}
+
+/*==============================
+  Tablet
+==============================*/
+
+@media (min-width:768px){
+
+.hero{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.nav-links{
+
+display:flex;
+
+}
+
+.menu-toggle{
+
+display:none;
+
+}
+
+}
+
+/*==============================
+  Desktop
+==============================*/
+
+@media (min-width:1200px){
+
+.hero{
+
+padding-top:4rem;
+
+}
+
+.hero h1{
+
+max-width:700px;
+
+}
+
+.hero p{
+
+max-width:600px;
+
+}
+
+.pixel-character{
+
+width:360px;
+
+}
+
+  }/*==================================================
+  FitRoutine - styles.css (Part 2A)
+  Sections:
+  9. Features
+  10. Workout Cards
+  11. Exercise Library
+  12. Search Box
+  13. Difficulty Filter
+==================================================*/
+
+/*==============================
+  Features
+==============================*/
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+}
+
+.feature-card{
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    padding:2rem;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+    position:relative;
+    overflow:hidden;
+}
+
+.feature-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,.02) 0 8px,
+        transparent 8px 16px
+    );
+    pointer-events:none;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    animation:pixelGlow 1.4s infinite;
+}
+
+.feature-card h3{
+    margin-bottom:1rem;
+}
+
+.feature-card p{
+    margin-top:0;
+}
+
+/*==============================
+  Workout Cards
+==============================*/
+
+.workout-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+}
+
+.workout-card{
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    padding:1.8rem;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    position:relative;
+}
+
+.workout-card::after{
+    content:"PIXEL";
+    position:absolute;
+    top:14px;
+    right:14px;
+    font-family:var(--font-pixel);
+    font-size:.45rem;
+    opacity:.2;
+}
+
+.workout-card:hover{
+    transform:translateY(-8px) scale(1.01);
+    animation:pixelGlow 1.2s infinite;
+}
+
+.workout-card p{
+    margin:0;
+    color:var(--text-muted);
+}
+
+.workout-card button{
+    margin-top:auto;
+    align-self:flex-start;
+    padding:.8rem 1rem;
+    border-radius:12px;
+    background:var(--primary);
+    color:#000;
+    font-weight:700;
+    transition:var(--transition);
+}
+
+.workout-card button:hover{
+    transform:translateY(-3px);
+    filter:brightness(1.05);
+}
+
+/*==============================
+  Exercise Library
+==============================*/
+
+.library-controls{
+    display:grid;
+    gap:1rem;
+    margin-bottom:2rem;
+}
+
+.exercise-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+}
+
+.exercise-card{
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    padding:1.5rem;
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+}
+
+.exercise-card:hover{
+    transform:translateY(-6px);
+    animation:pixelGlow 1.2s infinite;
+}
+
+.exercise-card h3{
+    font-size:1rem;
+}
+
+.exercise-card p{
+    margin:0;
+    color:var(--text-muted);
+}
+
+.exercise-card button{
+    margin-top:auto;
+    padding:.85rem 1rem;
+    border-radius:12px;
+    background:var(--secondary);
+    color:#fff;
+    font-weight:700;
+    transition:var(--transition);
+}
+
+.exercise-card button:hover{
+    transform:translateY(-3px);
+}
+
+/*==============================
+  Search Box
+==============================*/
+
+.library-controls input[type="search"]{
+    width:100%;
+    padding:1rem 1.1rem;
+    border:var(--border);
+    border-radius:14px;
+    background:var(--surface);
+    color:var(--text);
+    transition:var(--transition);
+    box-shadow:var(--shadow);
+}
+
+.library-controls input[type="search"]::placeholder{
+    color:var(--text-muted);
+}
+
+.library-controls input[type="search"]:focus{
+    animation:pixelGlow 1s infinite;
+}
+
+/*==============================
+  Difficulty Filter
+==============================*/
+
+.library-controls select{
+    width:100%;
+    padding:1rem;
+    border:var(--border);
+    border-radius:14px;
+    background:var(--surface);
+    color:var(--text);
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+}
+
+.library-controls select:focus{
+    animation:pixelGlow 1s infinite;
+}
+
+/*==============================
+  Tablet
+==============================*/
+
+@media (min-width:768px){
+
+    .feature-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .workout-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .exercise-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .library-controls{
+        grid-template-columns:2fr 1fr;
+        align-items:end;
+    }
+}
+
+/*==============================
+  Desktop
+==============================*/
+
+@media (min-width:1200px){
+
+    .feature-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .workout-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+
+    .exercise-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
+}/*==================================================
+  FitRoutine - styles.css (Part 2B)
+  Sections:
+  14. BMI Calculator
+  15. Favourite Exercises
+  16. Favourite Button
+==================================================*/
+
+/*==============================
+  BMI Calculator
+==============================*/
+
+#bmi{
+    display:grid;
+    gap:2rem;
+}
+
+#bmi form{
+    display:grid;
+    gap:1.25rem;
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    padding:2rem;
+    box-shadow:var(--shadow);
+}
+
+#bmi label{
+    display:block;
+    margin-bottom:.5rem;
+    font-weight:600;
+    color:var(--text-soft);
+}
+
+#bmi input[type="number"]{
+    width:100%;
+    padding:1rem;
+    border:var(--border);
+    border-radius:14px;
+    background:var(--bg-secondary);
+    color:var(--text);
+    transition:var(--transition);
+}
+
+#bmi input[type="number"]::placeholder{
+    color:var(--text-muted);
+}
+
+#bmi input[type="number"]:focus{
+    animation:pixelGlow 1s infinite;
+}
+
+#bmi button{
+    width:100%;
+    padding:1rem;
+    margin-top:.5rem;
+    border:var(--border);
+    border-radius:14px;
+    background:var(--primary);
+    color:#000;
+    font-family:var(--font-pixel);
+    font-size:.72rem;
+    transition:var(--transition);
+}
+
+#bmi button:hover{
+    transform:translateY(-4px);
+    box-shadow:var(--pixel-shadow);
+}
+
+.bmi-result{
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    padding:2rem;
+    text-align:center;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+}
+
+.bmi-result:hover{
+    animation:pixelGlow 1.4s infinite;
+}
+
+.bmi-value{
+    font-family:var(--font-pixel);
+    font-size:clamp(1.2rem,4vw,2rem);
+    color:var(--primary);
+    margin-bottom:1rem;
+}
+
+.bmi-category{
+    display:inline-block;
+    padding:.5rem 1rem;
+    border-radius:999px;
+    background:var(--bg-secondary);
+    font-weight:700;
+}
+
+.bmi-underweight{
+    color:var(--warning);
+}
+
+.bmi-normal{
+    color:var(--success);
+}
+
+.bmi-overweight{
+    color:#ff9c42;
+}
+
+.bmi-obese{
+    color:var(--danger);
+}
+
+/*==============================
+  Favourite Exercises
+==============================*/
+
+.favorites-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:1.5rem;
+}
+
+.favorite-card{
+    position:relative;
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    padding:1.75rem;
+    box-shadow:var(--shadow);
+    transition:var(--transition);
+    overflow:hidden;
+}
+
+.favorite-card::before{
+    content:"★";
+    position:absolute;
+    top:1rem;
+    right:1rem;
+    font-size:1.2rem;
+    color:var(--warning);
+    opacity:.25;
+}
+
+.favorite-card:hover{
+    transform:translateY(-6px);
+    animation:pixelGlow 1.3s infinite;
+}
+
+.favorite-card h3{
+    margin-bottom:.8rem;
+}
+
+.favorite-card p{
+    margin:0;
+    color:var(--text-muted);
+}
+
+/*==============================
+  Favourite Button
+==============================*/
+
+.favorite-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5rem;
+    margin-top:1rem;
+    padding:.8rem 1rem;
+    border:var(--border);
+    border-radius:12px;
+    background:var(--bg-secondary);
+    color:var(--text);
+    font-weight:700;
+    transition:var(--transition);
+}
+
+.favorite-btn:hover{
+    transform:translateY(-3px);
+    background:var(--surface-hover);
+}
+
+.favorite-btn:active{
+    transform:scale(.96);
+}
+
+.favorite-btn.active{
+    background:var(--warning);
+    color:#000;
+}
+
+.favorite-btn .icon{
+    font-size:1rem;
+    line-height:1;
+}
+
+.favorite-btn.active .icon{
+    color:#000;
+}
+
+/*==============================
+  Tablet
+==============================*/
+
+@media (min-width:768px){
+
+    #bmi{
+        grid-template-columns:1fr 1fr;
+        align-items:start;
+    }
+
+    .favorites-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+/*==============================
+  Desktop
+==============================*/
+
+@media (min-width:1200px){
+
+    .favorites-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    #bmi form,
+    .bmi-result{
+        min-height:100%;
+    }
+}/*==================================================
+  FitRoutine - styles.css (Part 3A)
+  Sections:
+  17. Exercise Detail Modal
+  18. Footer
+  19. Utility Classes
+==================================================*/
+
+/*==============================
+  Exercise Detail Modal
+==============================*/
+
+dialog{
+    margin:auto;
+    width:min(92vw,720px);
+    border:none;
+    border-radius:var(--radius);
+    padding:0;
+    background:transparent;
+    overflow:hidden;
+}
+
+dialog::backdrop{
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(6px);
+}
+
+dialog article{
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    animation:fadeUp .35s ease;
+}
+
+dialog header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1.25rem 1.5rem;
+    border-bottom:2px solid rgba(255,255,255,.08);
+}
+
+dialog header h2{
+    font-size:1rem;
+}
+
+dialog header button{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    border:var(--border);
+    background:var(--bg-secondary);
+    color:var(--text);
+    transition:var(--transition);
+}
+
+dialog header button:hover{
+    transform:rotate(90deg);
+    animation:pixelGlow 1s infinite;
+}
+
+dialog section{
+    padding:2rem;
+}
+
+.modal-image{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:14px;
+    background:var(--bg-secondary);
+    margin-bottom:1.5rem;
+    border:var(--border);
+}
+
+.modal-meta{
+    display:grid;
+    gap:1rem;
+    margin-top:1.5rem;
+}
+
+.modal-meta div{
+    background:var(--bg-secondary);
+    border-radius:12px;
+    padding:1rem;
+}
+
+.modal-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.75rem;
+    margin-top:1.5rem;
+}
+
+.modal-tag{
+    padding:.5rem .9rem;
+    border-radius:999px;
+    background:var(--primary);
+    color:#000;
+    font-size:.8rem;
+    font-weight:700;
+}
+
+/*==============================
+  Footer
+==============================*/
+
+footer{
+    margin-top:5rem;
+    background:var(--surface);
+    border-top:var(--border);
+}
+
+footer section{
+    width:min(100%,var(--max-width));
+    margin:auto;
+    padding:3rem 1rem 2rem;
+    text-align:center;
+}
+
+footer h2{
+    margin-bottom:1rem;
+}
+
+footer p{
+    color:var(--text-muted);
+}
+
+footer nav{
+    margin:2rem 0;
+}
+
+footer nav ul{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    align-items:center;
+}
+
+footer nav a{
+    font-weight:600;
+    transition:var(--transition);
+}
+
+footer nav a:hover{
+    color:var(--primary);
+}
+
+.footer-social{
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    margin:2rem 0;
+}
+
+.footer-social a{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border:var(--border);
+    border-radius:14px;
+    background:var(--bg-secondary);
+    transition:var(--transition);
+}
+
+.footer-social a:hover{
+    transform:translateY(-4px);
+    animation:pixelGlow 1.2s infinite;
+}
+
+.footer-bottom{
+    padding:1.25rem;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:var(--text-muted);
+    font-size:.9rem;
+}
+
+/*==============================
+  Utility Classes
+==============================*/
+
+.hidden{
+    display:none !important;
+}
+
+.flex{
+    display:flex;
+}
+
+.grid{
+    display:grid;
+}
+
+.center{
+    display:grid;
+    place-items:center;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.w-100{
+    width:100%;
+}
+
+.mt-1{margin-top:.5rem;}
+.mt-2{margin-top:1rem;}
+.mt-3{margin-top:1.5rem;}
+.mt-4{margin-top:2rem;}
+.mt-5{margin-top:3rem;}
+
+.mb-1{margin-bottom:.5rem;}
+.mb-2{margin-bottom:1rem;}
+.mb-3{margin-bottom:1.5rem;}
+.mb-4{margin-bottom:2rem;}
+.mb-5{margin-bottom:3rem;}
+
+.p-1{padding:.5rem;}
+.p-2{padding:1rem;}
+.p-3{padding:1.5rem;}
+.p-4{padding:2rem;}
+
+.rounded{
+    border-radius:var(--radius);
+}
+
+.shadow{
+    box-shadow:var(--shadow);
+}
+
+.pixel-border{
+    border:var(--border);
+}
+
+.surface{
+    background:var(--surface);
+}
+
+.text-primary{
+    color:var(--primary);
+}
+
+.text-success{
+    color:var(--success);
+}
+
+.text-warning{
+    color:var(--warning);
+}
+
+.text-danger{
+    color:var(--danger);
+}
+
+.fade-in{
+    animation:fadeUp .6s ease both;
+}
+
+/*==============================
+  Tablet
+==============================*/
+
+@media (min-width:768px){
+
+    .modal-meta{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    footer nav ul{
+        flex-direction:row;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:2rem;
+    }
+}
+
+/*==============================
+  Desktop
+==============================*/
+
+@media (min-width:1200px){
+
+    dialog{
+        width:min(760px,90vw);
+    }
+
+    footer section{
+        padding:4rem 1rem 3rem;
+    }
+}/*==================================================
+  FitRoutine - styles.css (Part 3A)
+  Sections:
+  17. Exercise Detail Modal
+  18. Footer
+  19. Utility Classes
+==================================================*/
+
+/*==============================
+  Exercise Detail Modal
+==============================*/
+
+dialog{
+    margin:auto;
+    width:min(92vw,720px);
+    border:none;
+    border-radius:var(--radius);
+    padding:0;
+    background:transparent;
+    overflow:hidden;
+}
+
+dialog::backdrop{
+    background:rgba(0,0,0,.72);
+    backdrop-filter:blur(6px);
+}
+
+dialog article{
+    background:var(--surface);
+    border:var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    animation:fadeUp .35s ease;
+}
+
+dialog header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    padding:1.25rem 1.5rem;
+    border-bottom:2px solid rgba(255,255,255,.08);
+}
+
+dialog header h2{
+    font-size:1rem;
+}
+
+dialog header button{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    border:var(--border);
+    background:var(--bg-secondary);
+    color:var(--text);
+    transition:var(--transition);
+}
+
+dialog header button:hover{
+    transform:rotate(90deg);
+    animation:pixelGlow 1s infinite;
+}
+
+dialog section{
+    padding:2rem;
+}
+
+.modal-image{
+    width:100%;
+    aspect-ratio:16/9;
+    border-radius:14px;
+    background:var(--bg-secondary);
+    margin-bottom:1.5rem;
+    border:var(--border);
+}
+
+.modal-meta{
+    display:grid;
+    gap:1rem;
+    margin-top:1.5rem;
+}
+
+.modal-meta div{
+    background:var(--bg-secondary);
+    border-radius:12px;
+    padding:1rem;
+}
+
+.modal-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:.75rem;
+    margin-top:1.5rem;
+}
+
+.modal-tag{
+    padding:.5rem .9rem;
+    border-radius:999px;
+    background:var(--primary);
+    color:#000;
+    font-size:.8rem;
+    font-weight:700;
+}
+
+/*==============================
+  Footer
+==============================*/
+
+footer{
+    margin-top:5rem;
+    background:var(--surface);
+    border-top:var(--border);
+}
+
+footer section{
+    width:min(100%,var(--max-width));
+    margin:auto;
+    padding:3rem 1rem 2rem;
+    text-align:center;
+}
+
+footer h2{
+    margin-bottom:1rem;
+}
+
+footer p{
+    color:var(--text-muted);
+}
+
+footer nav{
+    margin:2rem 0;
+}
+
+footer nav ul{
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    align-items:center;
+}
+
+footer nav a{
+    font-weight:600;
+    transition:var(--transition);
+}
+
+footer nav a:hover{
+    color:var(--primary);
+}
+
+.footer-social{
+    display:flex;
+    justify-content:center;
+    gap:1rem;
+    margin:2rem 0;
+}
+
+.footer-social a{
+    width:48px;
+    height:48px;
+    display:grid;
+    place-items:center;
+    border:var(--border);
+    border-radius:14px;
+    background:var(--bg-secondary);
+    transition:var(--transition);
+}
+
+.footer-social a:hover{
+    transform:translateY(-4px);
+    animation:pixelGlow 1.2s infinite;
+}
+
+.footer-bottom{
+    padding:1.25rem;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.08);
+    color:var(--text-muted);
+    font-size:.9rem;
+}
+
+/*==============================
+  Utility Classes
+==============================*/
+
+.hidden{
+    display:none !important;
+}
+
+.flex{
+    display:flex;
+}
+
+.grid{
+    display:grid;
+}
+
+.center{
+    display:grid;
+    place-items:center;
+}
+
+.text-center{
+    text-align:center;
+}
+
+.w-100{
+    width:100%;
+}
+
+.mt-1{margin-top:.5rem;}
+.mt-2{margin-top:1rem;}
+.mt-3{margin-top:1.5rem;}
+.mt-4{margin-top:2rem;}
+.mt-5{margin-top:3rem;}
+
+.mb-1{margin-bottom:.5rem;}
+.mb-2{margin-bottom:1rem;}
+.mb-3{margin-bottom:1.5rem;}
+.mb-4{margin-bottom:2rem;}
+.mb-5{margin-bottom:3rem;}
+
+.p-1{padding:.5rem;}
+.p-2{padding:1rem;}
+.p-3{padding:1.5rem;}
+.p-4{padding:2rem;}
+
+.rounded{
+    border-radius:var(--radius);
+}
+
+.shadow{
+    box-shadow:var(--shadow);
+}
+
+.pixel-border{
+    border:var(--border);
+}
+
+.surface{
+    background:var(--surface);
+}
+
+.text-primary{
+    color:var(--primary);
+}
+
+.text-success{
+    color:var(--success);
+}
+
+.text-warning{
+    color:var(--warning);
+}
+
+.text-danger{
+    color:var(--danger);
+}
+
+.fade-in{
+    animation:fadeUp .6s ease both;
+}
+
+/*==============================
+  Tablet
+==============================*/
+
+@media (min-width:768px){
+
+    .modal-meta{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    footer nav ul{
+        flex-direction:row;
+        justify-content:center;
+        flex-wrap:wrap;
+        gap:2rem;
+    }
+}
+
+/*==============================
+  Desktop
+==============================*/
+
+@media (min-width:1200px){
+
+    dialog{
+        width:min(760px,90vw);
+    }
+
+    footer section{
+        padding:4rem 1rem 3rem;
+    }
+                                 }/*==================================================
+  FitRoutine - styles.css (Part 3B)
+  Sections:
+  20. Animation Utilities
+  21. Scroll Effects
+  22. Responsive Refinements
+  23. Accessibility
+  24. Print Styles
+==================================================*/
+
+/*==============================
+  Animation Utilities
+==============================*/
+
+.animate-fade{
+    animation:fadeUp .6s ease both;
+}
+
+.animate-float{
+    animation:float 4s ease-in-out infinite;
+}
+
+.animate-glow{
+    animation:pixelGlow 1.5s infinite;
+}
+
+.scale-hover{
+    transition:var(--transition);
+}
+
+.scale-hover:hover{
+    transform:scale(1.04);
+}
+
+.rotate-hover{
+    transition:var(--transition);
+}
+
+.rotate-hover:hover{
+    transform:rotate(3deg);
+}
+
+.lift-hover{
+    transition:var(--transition);
+}
+
+.lift-hover:hover{
+    transform:translateY(-8px);
+    box-shadow:var(--shadow);
+}
+
+.pixel-pulse{
+    animation:pixelPulse 2s infinite;
+}
+
+@keyframes pixelPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+
+}
+
+.spin-slow{
+    animation:spinSlow 18s linear infinite;
+}
+
+@keyframes spinSlow{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+/*==============================
+  Scroll Reveal Helpers
+==============================*/
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.delay-1{transition-delay:.1s;}
+.delay-2{transition-delay:.2s;}
+.delay-3{transition-delay:.3s;}
+.delay-4{transition-delay:.4s;}
+
+/*==============================
+  Responsive Refinements
+==============================*/
+
+@media (max-width:767px){
+
+    section{
+        padding:4rem 0;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .btn-primary,
+    .btn-secondary{
+        width:100%;
+    }
+
+    .workout-card,
+    .exercise-card,
+    .feature-card,
+    .favorite-card{
+        padding:1.4rem;
+    }
+
+    dialog{
+        width:95vw;
+    }
+
+}
+
+@media (min-width:768px){
+
+    body{
+        font-size:16px;
+    }
+
+    .library-controls{
+        align-items:end;
+    }
+
+}
+
+@media (min-width:1024px){
+
+    body{
+        font-size:17px;
+    }
+
+    .hero{
+        gap:5rem;
+    }
+
+    .feature-card,
+    .exercise-card,
+    .workout-card,
+    .favorite-card{
+        min-height:100%;
+    }
+
+}
+
+@media (min-width:1440px){
+
+    main{
+        padding-inline:2rem;
+    }
+
+    section{
+        padding:6rem 0;
+    }
+
+}
+
+/*==============================
+  Accessibility
+==============================*/
+
+@media (prefers-reduced-motion:reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+
+    }
+
+}
+
+:focus-visible{
+    outline:3px solid var(--warning);
+    outline-offset:4px;
+}
+
+/*==============================
+  Print Styles
+==============================*/
+
+@media print{
+
+    body{
+
+        background:#fff !important;
+
+        color:#000 !important;
+
+    }
+
+    .site-header,
+    .menu-toggle,
+    .theme-toggle,
+    dialog,
+    footer{
+
+        display:none !important;
+
+    }
+
+    section{
+
+        break-inside:avoid;
+
+        padding:1rem 0;
+
+    }
+
+    .feature-card,
+    .exercise-card,
+    .workout-card,
+    .favorite-card,
+    .bmi-result{
+
+        border:1px solid #000;
+
+        box-shadow:none;
+
+        background:#fff;
+
+        color:#000;
+
+    }
+
+}
